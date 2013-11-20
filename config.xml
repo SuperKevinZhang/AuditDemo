@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns                = "http://www.w3.org/ns/widgets"
+        xmlns:gap        = "http://phonegap.com/ns/1.0"
+        id                = "com.alunny.amazing"
+        version         = "1.0.0">
+
+        <name>移动审批平台</name>
+
+        <description>
+                移动审批平台demo app
+        </description>
+
+        <author href="http://dealeasy.com"
+                email="zhangzeshuai@gmail.com">
+                Kevin
+        </author>
+
+        <gap:platforms>
+                <gap:platform name="android" minVersion="2.3" />
+                <gap:platform name="webos" />
+                <gap:platform name="symbian.wrt" />
+                <gap:platform name="blackberry" project="widgets"/>
+        </gap:platforms>
+
+        <icon src="img/logo.png" gap:role="default" />
+
+    <gap:splash src="bg.jpg" />
+
+        <feature name="http://api.phonegap.com/1.0/geolocation"/>
+        <feature name="http://api.phonegap.com/1.0/network"/>
+
+        <!-- sample preference specification -->
+        <!-- <preference name="autorotate" value="false" readonly="true"/> -->
+</widget>
