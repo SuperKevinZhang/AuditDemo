@@ -1,0 +1,235 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+ !importent
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+	
+	 -webkit-backface-visibility: hidden;/* for 闪屏 */
+
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+}
+
+/* Portrait layout (default) */
+.app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:2px;
+    -webkit-border-radius:2px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+/*custom by kevin 样式表 新增*/
+/*! normalize.css v2.1.3 | MIT License | git.io/normalize */
+body ,h1,h2,h3,h4,h5,h6,p,dl,dd{ margin: 0; }
+a { background: transparent; text-decoration: none; }
+a:active,a:hover { outline: 0; }
+i{ font-style: normal;}
+b,strong { font-weight: bold; }
+img { border: 0; }
+figure { margin: 0; }
+fieldset { border: 1px solid #c0c0c0; margin: 0 2px; padding: 0.35em 0.625em 0.75em; }
+legend { border: 0; padding: 0;  }
+button, input, select,textarea { font-family: inherit; font-size: 100%; margin: 0; }
+button,input { line-height: normal; }
+textarea { overflow: auto; vertical-align: top; }
+table { border-collapse: collapse; border-spacing: 5px; }
+
+/*********************** global ******************************/
+html{ background: #050d18;  color: #fff;}
+body{ font-family: 'Lato', Arial, sans-serif;}
+
+/*********************** splash ******************************/
+.splash{ width: 98%; padding: 0 1%; position: absolute; top: 50%; margin-top: -136px; overflow: hidden; }
+.logo{ width: 201px; height: 56px; background: url(../images/logo.png); -webkit-background-size:201px 56px; background-size: 201px 56px; margin-left: 2%; }
+.colorbar{ word-wrap:no-wrap; white-space: nowrap; overflow: hidden;}
+.colorbar i{ display: inline-block; height: 2px; margin: 1%;}
+.colorbar .pink{ background: #ff0070; width: 58%;}
+.colorbar .orange{ background: #ff5c21; width: 28%;}
+.colorbar .blue{ background: #00c8de; width: 18%;}
+h1.name{ font-size: 14px; line-height: 2em; font-weight: normal; margin: 0 2%;}
+
+.login { text-align: center; display: block;}
+.login p{ margin: 20px auto; position: relative; width: 90%;}
+.login p.flex{  display: -webkit-box; display: -ms-flexbox; display: box; box-orient:horizontal; }
+.login p .inputstyle{ display: block; width: 100%;  border-radius: 2px; font-size: 13px; color: #6a6f73; padding: 10px 10px; border: none; -webkit-box-sizing:border-box; box-sizing:border-box; -webkit-user-modify: read-write-plaintext-only; -webkit-appearance: none; -webkit-tap-highlight-color: rgba(255,255,255,0);}
+.login p input:focus{ outline: none; }
+.login p .icon{ position: absolute; top: 13px; left: 10px; color: #6a6f73;}
+
+.nav{ border-collapse: separate; border-spacing: 5px; margin-top: 10px; width: 100%; margin-bottom: 20px; }
+.nav_item{ height: 74px; padding-left: 13px; padding-top: 8px; box-sizing:border-box; -webkit-box-sizing:border-box;}
+.nav_item h2{ text-align: right; padding: 4px 10px 0 0;}
+.nav_item.l h2{ margin-top: -10px;}
+.nav_item.l
+{
+    background: #00CC99;
+    width: 100%;
+}
+.nav_item.m
+{
+    background: #009933;
+    width: 50%;
+}
+.nav_item.s{ background: #00c8de; width: 25%;}
+
+.nav_item .icon{}
+.nav_item.l .icon{ font-size: 43px; }
+.nav_item.m .icon{ font-size: 26px; }
+.nav_item.s .icon{ font-size: 26px; }
+.items_name{ font-weight: normal; font-size: 13px; right: 10px; bottom: 10px; }
+.items_data{
+	font-weight: bold;
+	font-size: 20px;
+	color:#FFF;
+	right: 10px;
+	bottom: 10px;
+	text-align: right;
+	padding: 0px 10px;
+	box-shadow:0px 0px 0px 0px #F00；
+}
+.detail_list
+{
+		color:#069
+}
+.detail_list li
+{
+  margin:0 3px 0 8px;
+}
+.detail_list span
+{
+	font-weight: bold
+}
+.detail_lable
+{
+	color:#666
+}
+.detail_data
+{
+	padding: 0 0 0 5px;
+	font-weight: bold
+	color:#F60
+}
+.detail_name
+{
+	color:#F63;
+	pandding: 0 -5px 0 0;
+	margin: 0 -15px 0 0;
+}
+.detail_index
+{
+	color:#099
+}
+.detail_score
+{
+	color:#000
+}
+.list_image
+{
+   height: 48px; padding-left: 13px; padding-top: 18px; 
+}
+.list_a
+{
+padding-left:50px;
+}
+/*********my ganme **********/
+
+

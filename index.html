@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<!--
+
+-->
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!--样式引用-->
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.3.2.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.3.2.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.2.css">
+<script type="text/javascript" src="js/lib/src/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script ype="text/javascript" src="js/loadjs.js"></script>
+<script src="js/app/src/login.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<!--快速点击事件-->
+<script type="text/javascript" src="js/lib/src/fastclick.js"></script>
+<script type="text/javascript" src="js/lib/src/jquery.mobile-1.3.2.js"></script>
+<script type="text/javascript" src="js/lib/src/iscroll.js"></script>
+<script ype="text/javascript" src="js/smart_mobile.js"></script>
+<script type="text/javascript" charset="utf-8">
+
+  $("#cashSettlementDetail_page").live("pagebeforecreate",function(){         
+     alert("正在创建页面");
+   });
+   $("#cashSettlementDetail_page").live("pagecreate",function(){
+     alert("页面创建完成");
+   });
+//快速点击事件
+ window.addEventListener('load', function() {
+            new FastClick(document.body);
+    }, false);
+	
+ om.init();
+  
+
+
+</script>
+<title>森松移动审批平台</title>
+</head>
+
+<body>
+<div style="visibility:hidden" id="omParams">全局变量传递参数使用</div>
+<div  data-role="page" data-tap-toggle="false" data-control-title="login" id="login_page" style="background-image:url(img/bg.gif)" >
+  <div data-role="content" style="padding: 7% "> <br>
+    <div style="" data-controltype="image"> <img style="width: 221px; height: 43px" src="img/index.jpg"> </div>
+    <br>
+    <br>
+    <h1> 移动审批平台 </h1>
+    <div class="login">
+      <p>
+        <input  class="inputstyle" style="padding: 10px 20px" type="text" autocomplete="on" id="txtName" name="txtName" value="1"	placeholder="请输入用户名" />
+        <i id="i_n" class="icon icon-user"></i> </p>
+      <p>
+        <input class="inputstyle"  style="padding: 10px 20px" type="password" autocomplete="on" id="txtPs" name="txtPs"
+                                placeholder="请输入密码" />
+        <i id="i_m"  class="icon icon-lock"></i> </p>
+    </div>
+    <div data-role="fieldcontain" data-controltype="textinput"> <a data-role="button" id="login_login" name="login_login"  href="#"  data-transition="slide" data-icon="arrow-r" data-iconpos="right"> 登录 </a> </div>
+  </div>
+</div>
+
+<!--我的工作区-->
+<div data-theme="b" data-role="page" data-tap-toggle="false" data-position="fixed" data-control-title="dashboard" id="dashboard_page">
+  <div data-role="panel" id="dashboard_menupanel"  data-position-fixed="true" data-position="left" data-display="reveal"
+      data-theme="a">
+    <ul  id="dashboard_menu" name="dashboard_menu" data-role="listview" data-divider-theme="h" data-inset="false">
+      <li data-role="list-divider" role="heading">菜单</li>
+      <li data-theme="a"><a id="dashboard" href="#" onclick="om.changeHashPage('#dashboard_page')" data-transition="none" class="icon icon-rocket"> 我的工作区</a></li>
+      <li data-theme="a"><a id="match" href="#" onclick="om.changeHashPage('#cashSettlement_page')" data-transition="none" class="icon icon-fire"> 现金结算单</a></li>
+      <li data-theme="a"><a id="mygame" href="#" onclick="om.changeHashPage('mygame.html')" data-transition="none" class="icon icon-coffee"> 公章使用</a></li>
+      <li data-theme="a"><a id="chart" href="#" onclick="om.changeHashPage('chart.html')" data-transition="none" class="icon icon-gift"> 加班申请</a></li>
+      <li data-theme="a"><a id="friend" href="#" onclick="om.changeHashPage('friend.html')" data-transition="none" class="icon icon-user"> 探亲假</a></li>
+      <li data-theme="a"><a id="messages" href="#" onclick="om.changeHashPage('messages.html')" data-transition="none" class="icon icon-bell"> 银行</a></li>
+      <li data-theme="a"><a id="login_page" href="#login_page" data-transition="none" class="icon icon-reply"> 退出</a></li>
+    </ul>
+  </div>
+  <!--我的工作区-->
+  <div data-theme="b" data-role="header" data-position="fixed" id="dashboard_header"> <a data-controltype="panelbutton" id = "dashboard_menu_a" data-role="button" href="#dashboard_menupanel" data-icon="bars"
+           data-wrapperels="span"  class="ui-btn-left">菜单 </a>
+    <h3> 我的工作区 </h3>
+  </div>
+  <div  data-role="content">
+    <table class="nav">
+      <tbody>
+        <tr>
+          <td colspan="4" class="nav_item l" onclick="om.changeHashPage('#cashSettlement_page')"><i class="icon icon-gift"></i>
+            <h1 id="db_score" name = "db_score" class="items_data">2</h1>
+            <br>
+            <h2 class="items_name">我的审批</h2></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="nav_item m" ><i class="icon icon-list-ol"></i>
+            <h1 id="db_index" name = "db_index"  class="items_data">1</h1>
+            <h2 class="items_name">我的申请</h2></td>
+          <td colspan="2" class="nav_item m" ><i class="icon icon-user"></i>
+            <h1 id="db_frends" name = "db_frends"  class="items_data">0</h1>
+            <h2 class="items_name">被驳回的申请</h2></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="nav_item m" ><i class="icon icon-coffee"></i>
+            <h1 id="db_games" name = "db_games"  class="items_data">0</h1>
+            <h2 class="items_name">XXX</h2></td>
+          <td  colspan="2" class="nav_item s"  ><i class="icon icon-star"></i>
+            <h1 id="db_activity" name = "db_activity" class="items_data">0</h1>
+            <h2 class="items_name">XXX</h2></td>
+            </td>
+        </tr>
+        <tr>
+          <td colspan="4" class="nav_item l" ><i class="icon icon-calendar"></i>
+            <h1 id="db_jointime" name = "db_jointime"  class="items_data">2</h1>
+            <br>
+            <h2 class="items_name">公告</h2></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!--现金结算-->
+<div data-theme="b" data-role="page" data-position="fixed" data-control-title="dashboard" id="cashSettlement_page" data-dom-cache="true" >
+  <div data-role="panel" id="cashSettlement_panel" data-position-fixed="true" data-position="left" data-display="reveal"
+      data-theme="a">
+    <ul id="cashSettlement_menu" name="cashSettlement_menu" data-role="listview" data-divider-theme="h" data-inset="false">
+      <li data-role="list-divider" role="heading">菜单</li>
+      <li data-theme="a"><a id="dashboard" href="#" onclick="om.changeHashPage('#dashboard_page')" data-transition="none" class="icon icon-rocket"> 我的工作区</a></li>
+      <li data-theme="a"><a id="match" href="#" onclick="om.changeHashPage('#cashSettlement_page')" data-transition="none" class="icon icon-fire"> 现金结算单</a></li>
+      <li data-theme="a"><a id="mygame" href="#" onclick="om.changeHashPage('mygame.html')" data-transition="none" class="icon icon-coffee"> 公章使用</a></li>
+      <li data-theme="a"><a id="chart" href="#" onclick="om.changeHashPage('chart.html')" data-transition="none" class="icon icon-gift"> 加班申请</a></li>
+      <li data-theme="a"><a id="friend" href="#" onclick="om.changeHashPage('friend.html')" data-transition="none" class="icon icon-user"> 探亲假</a></li>
+      <li data-theme="a"><a id="messages" href="#" onclick="om.changeHashPage('messages.html')" data-transition="none" class="icon icon-bell"> 银行</a></li>
+      <li data-theme="a"><a id="login_page" href="#login_page" data-transition="none" class="icon icon-reply"> 退出</a></li>
+    </ul>
+  </div>
+  <div data-theme="b" data-id="cashSettlement_header" id="cashSettlement_header" data-role="header" data-position="fixed"> <a data-controltype="panelbutton" id="cashSettlement_menu_a" data-role="button" href="#cashSettlement_panel" data-icon="bars"
+          class="ui-btn-left">菜单 </a>
+    <h3> 现金结算审批 </h3>
+  </div>
+  <div  id="PageBody" data-role="content" data-iscroll> <!-- 页面主体-->
+    
+    <ul data-theme="c" data-role="listview" data-inset="true" id="list_friend">
+      <li><a class="a_friend" onclick="om.changeHashPage('#cashSettlementDetail_page')" href="#" id="a_person" >
+        <h6 class='detail_name'> 兰博(SS8043)</h6>
+        <p><strong>森松集团（中国）/ IT部</strong></p>
+        <p class='detail_score'>申请日期：2013/11/12</p>
+        <p class='ui-li-aside' ><span class='detail_index'>$800</span></p>
+        </a> </li>
+      <li><a class="a_friend" onclick="om.changeHashPage('#cashSettlementDetail_page')" href="#" id="a_person" >
+        <h6 class='detail_name'> 史泰龙(SS8045)</h6>
+        <p><strong>森松集团（中国）/ IT部</strong></p>
+        <p class='detail_score'>申请日期：2013/11/12</p>
+        <p class='ui-li-aside' ><span class='detail_index'>￥200</span></p>
+        </a> </li>
+      <li><a class="a_friend" onclick="om.changeHashPage('#cashSettlementDetail_page')" href="#" id="a_person" >
+        <h6 class='detail_name'> 孔融(SS8047)</h6>
+        <p><strong>森松集团（中国）/ IT部</strong></p>
+        <p class='detail_score'>申请日期：2013/11/12</p>
+        <p class='ui-li-aside' ><span class='detail_index'>￥500</span></p>
+        </a> </li>
+    </ul>
+    <a href="#" data-role="button" id="showmore" style="display:none">点击显示更多</a> </div>
+</div>
+
+<!--现金审批明细-->
+<div data-theme="b" id="cashSettlementDetail_page" data-role="page" data-position="fixed" data-add-back-btn="true" >
+  <div data-theme="b" data-role="header" data-id="cashSettlementDetail_header"   data-position="fixed"> <a href="#" id ="cashSettlementDetail_back" data-icon="back"  data-rel="back"  class="ui-btn-left">返回</a>
+    <h3>现金类结算单审批</h3>
+  </div>
+  <div data-role="content" data-iscroll>
+    <div id="message_list" >
+      <div data-role="collapsible"  data-theme="c" data-content-theme="d" data-collapsed="false" data-collapsed-icon="arrow-r" and 	data-expanded-icon="arrow-d" data-iconpos="right" >
+        <h3>申请人：孔融(SS8047)</h3>
+        <div class="detail_list">
+          <li>第XXXX号</li>
+          <li>森松集团（中国）/ IT部</li>
+          <li>申请日期：2013/11/12</li>
+        </div>
+      </div>
+      <!-- /collapsible -->
+      <div data-role="collapsible" data-theme="c" data-content-theme="d" data-collapsed="false" data-collapsed-icon="arrow-r" and 	data-expanded-icon="arrow-d" data-iconpos="right">
+        <h3>申请金额：￥500</h3>
+        <div class="detail_list">
+          <li><i class="icon icon-check">  是否境外费用报销</i></li>
+           
+          <li>工作令号：XXXXX</li>
+          <table width="100%" data-role="table" id="table-column-toggle" data-mode="columntoggle" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="显示" data-column-popup-theme="a">
+            <tbody>
+            <thead>
+              <tr  class="ui-bar-d">
+                <th data-priority="1" style=" width:15%">序号</th>
+                <th data-priority="1" style=" width:30%">日期</th>
+                <th data-priority="3" >摘要</th>
+                <th data-priority="1" style=" width:30%">金额</th>
+              </tr>
+            </thead>
+            <tr  >
+              <td >1</td>
+              <td >2013/08/10</td>
+              <td >打车费用</td>
+              <td>128.00</td>
+            </tr>
+            <tr  >
+              <td >2</td>
+              <td >2013/08/10</td>
+              <td >客户招到费</td>
+              <td >372.00</td>
+            </tr>
+            <tr  >
+              <td >备注</td>
+              <td colspan="3">出差借款 </td>
+            </tr>
+            <tr  >
+              <td >合计</td>
+              <td colspan="3"><li>金额:500 (币种:人民币）汇率:1:1</li>
+                <li>人民币大写:伍佰元整 人民币合计￥:500.00</li></td>
+            </tr>
+              </tbody>
+            
+          </table>
+        </div>
+      </div>
+      <!-- /collapsible -->
+      <div data-role="collapsible" data-theme="c" data-content-theme="d" data-collapsed="false" data-collapsed-icon="arrow-r" and 	data-expanded-icon="arrow-d" data-iconpos="right">
+        <h3>审批信息</h3>
+        <table width="100%" data-role="table" id="table-column-toggle2" data-mode="columntoggle" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="显示" data-column-popup-theme="a">
+          <tbody>
+          <thead>
+            <tr  class="ui-bar-d" style="display:none">
+              <th data-priority="1">职位</th>
+              <th data-priority="1">审批人</th>
+              <th data-priority="1">签字状态</th>
+              <th data-priority="3">日期</th>
+              <th data-priority="1">核准金额</th>
+            </tr>
+          </thead>
+          <tr>
+            <td>部门主管</td>
+            <td>武松</td>
+            <td><i class="icon icon-check"></i></td>
+            <td>2013/11/19</td>
+            <td>核准金额：450.00</td>
+          </tr>
+          <tr>
+            <td>部长</td>
+            <td>林冲</td>
+            <td><i class="icon icon-check"></i></td>
+            <td>2013/11/19</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>副总经理</td>
+            <td>宋江</td>
+            <td><i class="icon icon-o"></i></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>总经济师</td>
+            <td>柴进</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>总经理</td>
+            <td>晁盖</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>财务</td>
+            <td>签字：</td>
+            <td>XXXX</td>
+            <td>日期：</td>
+            <td>审核金额：</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>原因代码</td>
+            <td>&nbsp;</td>
+            <td>币种</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>经办</td>
+            <td>付款人：</td>
+            <td>XXX</td>
+            <td>日期：</td>
+            <td>领款人：</td>
+          </tr>
+            </tbody>
+          
+        </table>
+      </div>
+      <!-- /collapsible -->
+      <div style="text-align:right">
+      <div data-role="controlgroup" data-type="horizontal"  > <a href="#" data-role="button" data-icon="delete">驳回</a> <a href="#" data-role="button" data-icon="check">通过</a> 
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+	app.initialize();
+</script>
+</body>
+</html>

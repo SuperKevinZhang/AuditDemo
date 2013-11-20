@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+Add kevin.zhang@serviceindeed.com
+dashborad 
+2013-10-31
+-->
+<html>
+    <head>
+    <title>假日围棋社</title>
+    </head>
+    <body>
+  <div data-theme="b" data-role="page" data-tap-toggle="false" data-position="fixed" data-control-title="dashboard" id="dashboard_page">
+      <div data-role="panel" id="dashboard_menupanel"  data-position-fixed=true data-position="left" data-display="reveal"
+      data-theme="a">
+            <ul  id="dashboard_menu" name="dashboard_menu" data-role="listview" data-divider-theme="h" data-inset="false">
+            <li data-role="list-divider" role="heading">菜单</li>
+            <li data-theme="a"><a id="dashboard" href="#" onclick="om.changeHashPage('dashboard.html')" data-transition="none" class="icon icon-rocket"> 现金结算单</a></li>
+            <li data-theme="a"><a id="match" href="#" onclick="om.changeHashPage('match.html')" data-transition="none" class="icon icon-fire"> 差旅费</a></li>
+            <li data-theme="a"><a id="mygame" href="#" onclick="om.changeHashPage('mygame.html')" data-transition="none" class="icon icon-coffee"> 公章使用</a></li>
+            <li data-theme="a"><a id="chart" href="#" onclick="om.changeHashPage('chart.html')" data-transition="none" class="icon icon-gift"> 加班申请</a></li>
+            <li data-theme="a"><a id="friend" href="#" onclick="om.changeHashPage('friend.html')" data-transition="none" class="icon icon-user"> 探亲假</a></li>
+            <li data-theme="a"><a id="messages" href="#" onclick="om.changeHashPage('messages.html')" data-transition="none" class="icon icon-bell"> 银行</a></li>
+            <li data-theme="a"><a id="login_page" href="#login_page" data-transition="none" class="icon icon-reply"> 退出</a></li>
+            
+          </ul>
+      </div>
+      <div data-theme="b" data-role="header" data-position="fixed" id="dashboard_header">
+          <a data-controltype="panelbutton" id = "dashboard_menu_a" data-role="button" href="#dashboard_menupanel" data-icon="bars"
+           data-wrapperels="span"  class="ui-btn-left">菜单
+          </a>
+          
+                     
+          <h3>
+              我的工作区
+          </h3>
+          
+      </div>
+      <div  data-role="content">
+      
+           <table class="nav">
+                <tbody>
+                    <tr>
+                        <td colspan="4" class="nav_item l" onclick="om.changeHashPage('chart.html')">
+                            <i class="icon icon-gift"></i>
+                            <h1 id="db_score" name = "db_score" class="items_data">2</h1>
+                            <br>
+                            <h2 class="items_name">我的申请</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="nav_item m" >
+                            <i class="icon icon-list-ol"></i>
+                            <h1 id="db_index" name = "db_index"  class="items_data">1</h1>
+                            <h2 class="items_name">我的审批</h2>
+                        </td>
+
+                        <td colspan="2" class="nav_item m" >
+                            <i class="icon icon-user"></i>
+                            <h1 id="db_frends" name = "db_frends"  class="items_data">0</h1>
+                            <h2 class="items_name">手谈棋友数</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                       
+                        <td colspan="2" class="nav_item m" onclick="om.changeHashPage('mygame.html')">
+                            <i class="icon icon-coffee"></i>
+                            <h1 id="db_games" name = "db_games"  class="items_data">0</h1>
+                            <h2 class="items_name">对局数</h2>
+                        </td>
+                         
+                        <td  colspan="2" class="nav_item s" onclick="om.changeHashPage('match.html')" >
+                            <i class="icon icon-star"></i>
+                            <h1 id="db_activity" name = "db_activity" class="items_data">0</h1>
+                            <h2 class="items_name">活动次数</h2>
+                        </td>
+                         
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="nav_item l" >
+                            <i class="icon icon-calendar"></i>
+                            <h1 id="db_jointime" name = "db_jointime"  class="items_data">2</h1>
+                            <br>
+                            <h2 class="items_name">公告</h2>
+                        </td>
+                        
+                    </tr>
+
+                </tbody>
+            </table>
+      </div>
+  </div>      
+</body>
+</html>
