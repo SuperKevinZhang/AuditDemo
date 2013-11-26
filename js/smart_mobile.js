@@ -185,7 +185,7 @@ om.hideloading=function(){
 		$.mobile.hidePageLoadingMsg();
 }
 om.notifigion=function(message){
-	alert(message);
+	om.showloading(message,true);
 }
 
 om.pubUrl=function()
