@@ -24,7 +24,7 @@
 
         <icon src="img/logo.png" gap:role="default" />
 
-    <gap:splash src="img/logo.png" />
+    <gap:splash src="Start.png" />
 
         <feature name="http://api.phonegap.com/1.0/geolocation"/>
         <feature name="http://api.phonegap.com/1.0/network"/>
