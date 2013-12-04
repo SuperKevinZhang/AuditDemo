@@ -122,7 +122,7 @@ om.changeHashPage = function (hash, params) {
 		 jsName = hash.replace("#","").replace("_page","")
 	 }
 	$.mobile.changePage(hash ,{
-							transition : "none"
+							transition : "slide"
 						});
 	//传递参数
 					
