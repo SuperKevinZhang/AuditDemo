@@ -21,7 +21,8 @@
                 <gap:platform name="symbian.wrt" />
                 <gap:platform name="blackberry" project="widgets"/>
         </gap:platforms>
-
+        <content src="index.html" />
+        <access origin="*" />
         <icon src="img/logo.png" gap:role="default" />
 
     <gap:splash src="Start.png" />
